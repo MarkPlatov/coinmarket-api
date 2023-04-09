@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - logicalFilePath: db/changelog/changelog-initial.yaml
+  - changeSet:
+      id: Create table account_pairs
+      author: mark
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            - tableExists:
+                tableName: account_pairs
+      changes:
+        - createTable:
+            tableName: account_pairs
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: global_company_id
+                  type: int
+              - column:
+                  name: checking_account
+                  type: varchar(20)
+              - column:
+                  name: nominal_account
+                  type: varchar(20)
+              - column:
+                  name: beneficiary
+                  type: varchar(10)
+              - column:
+                  name: status
+                  type: varchar(10)
