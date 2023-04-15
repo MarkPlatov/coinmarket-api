@@ -1,36 +1,44 @@
 databaseChangeLog:
   - logicalFilePath: db/changelog/changelog-initial.yaml
   - changeSet:
-      id: Create table account_pairs
+      id: Create table coin
       author: mark
       preConditions:
         - onFail: MARK_RAN
         - not:
             - tableExists:
-                tableName: account_pairs
+                tableName: coin
       changes:
         - createTable:
-            tableName: account_pairs
+            tableName: coin
             columns:
               - column:
                   name: id
-                  type: int
+                  type: INTEGER
                   autoIncrement: true
                   constraints:
                     primaryKey: true
-                    nullable: false
               - column:
-                  name: global_company_id
-                  type: int
+                  name: cmc_id
+                  type: INTEGER
               - column:
-                  name: checking_account
-                  type: varchar(20)
+                  name: is_fiat
+                  type: BOOLEAN
               - column:
-                  name: nominal_account
-                  type: varchar(20)
+                  name: is_active
+                  type: BOOLEAN
               - column:
-                  name: beneficiary
-                  type: varchar(10)
+                  name: sign
+                  type: VARCHAR
               - column:
-                  name: status
-                  type: varchar(10)
+                  name: name
+                  type: VARCHAR
+              - column:
+                  name: symbol
+                  type: VARCHAR
+              - column:
+                  name: slug
+                  type: VARCHAR
+              - column:
+                  name: listing_status
+                  type: VARCHAR

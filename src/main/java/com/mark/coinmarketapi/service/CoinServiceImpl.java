@@ -9,13 +9,18 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class CoinmarketServiceImpl implements CoinmarketService {
+public class CoinServiceImpl implements CoinService {
 
     private final CoinmarketRepository repository;
 
     @Override
-    public List<Coin> getCheckingAccounts() {
-        return repository.findAll();
+    public void cleanCoinsTable() {
+        repository.deleteAll();
+    }
+
+    @Override
+    public void saveAllCoins(List<Coin> coins) {
+        repository.saveAll(coins);
     }
 
 }

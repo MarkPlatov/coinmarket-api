@@ -4,8 +4,8 @@ import java.util.List;
 
 import com.mark.coinmarketapi.model.Coin;
 
-public interface CoinmarketService {
+public interface CoinService {
+    void cleanCoinsTable();
 
-    List<Coin> getCheckingAccounts();
-
+    void saveAllCoins(List<Coin> coins);
 }

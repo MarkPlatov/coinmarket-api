@@ -8,4 +8,4 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQL10Dialect
     hibernate.ddl-auto: none
   liquibase:
-    enabled: false
+    enabled: true
