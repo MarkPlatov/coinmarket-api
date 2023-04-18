@@ -8,4 +8,6 @@ public interface CoinService {
     void cleanCoinsTable();
 
     void saveAllCoins(List<Coin> coins);
+
+    List<Coin> findCoinsByNamePart(String namePart);
 }

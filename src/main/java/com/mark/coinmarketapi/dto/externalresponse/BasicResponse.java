@@ -1,4 +1,4 @@
-package com.mark.coinmarketapi.dto.response;
+package com.mark.coinmarketapi.dto.externalresponse;
 
 import com.mark.coinmarketapi.dto.ResponseStatus;
 import lombok.Data;

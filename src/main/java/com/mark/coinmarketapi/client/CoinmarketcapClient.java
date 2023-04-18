@@ -1,9 +1,9 @@
 package com.mark.coinmarketapi.client;
 
 import com.mark.coinmarketapi.config.CoinmarketFeignConfig;
-import com.mark.coinmarketapi.dto.response.CryptocurrencyMapResponse;
-import com.mark.coinmarketapi.dto.response.KeyInfoResponse;
-import com.mark.coinmarketapi.dto.response.QuotesLatestResponse;
+import com.mark.coinmarketapi.dto.externalresponse.CryptocurrencyMapResponse;
+import com.mark.coinmarketapi.dto.externalresponse.KeyInfoResponse;
+import com.mark.coinmarketapi.dto.externalresponse.QuotesLatestResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

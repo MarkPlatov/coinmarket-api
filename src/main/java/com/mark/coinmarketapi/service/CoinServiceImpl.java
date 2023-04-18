@@ -3,7 +3,7 @@ package com.mark.coinmarketapi.service;
 import java.util.List;
 
 import com.mark.coinmarketapi.model.Coin;
-import com.mark.coinmarketapi.repository.CoinmarketRepository;
+import com.mark.coinmarketapi.repository.CoinRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class CoinServiceImpl implements CoinService {
 
-    private final CoinmarketRepository repository;
+    private final CoinRepository repository;
 
     @Override
     public void cleanCoinsTable() {
@@ -23,4 +23,8 @@ public class CoinServiceImpl implements CoinService {
         repository.saveAll(coins);
     }
 
+    @Override
+    public List<Coin> findCoinsByNamePart(String namePart) {
+        return repository.findByNamePart(namePart);
+    }
 }

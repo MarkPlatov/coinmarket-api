@@ -42,3 +42,34 @@ databaseChangeLog:
               - column:
                   name: listing_status
                   type: VARCHAR
+
+  - changeSet:
+      id: Create table quote
+      author: mark
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            - tableExists:
+                tableName: quote
+      changes:
+        - createTable:
+            tableName: quote
+            columns:
+              - column:
+                  name: id
+                  type: INTEGER
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: source_cmc_id
+                  type: INTEGER
+              - column:
+                  name: destination_cmc_id
+                  type: INTEGER
+              - column:
+                  name: exchange_rate
+                  type: FLOAT(48)
+              - column:
+                  name: last_updated
+                  type: DATETIME

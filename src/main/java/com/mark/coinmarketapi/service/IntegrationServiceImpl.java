@@ -6,8 +6,8 @@ import java.util.function.BiFunction;
 
 import com.mark.coinmarketapi.client.CoinmarketcapClient;
 import com.mark.coinmarketapi.dto.CoinDto;
-import com.mark.coinmarketapi.dto.response.KeyInfoResponse;
-import com.mark.coinmarketapi.dto.response.QuotesLatestResponse;
+import com.mark.coinmarketapi.dto.externalresponse.KeyInfoResponse;
+import com.mark.coinmarketapi.dto.externalresponse.QuotesLatestResponse;
 import com.mark.coinmarketapi.enums.ListingStatus;
 import com.mark.coinmarketapi.model.Coin;
 import lombok.RequiredArgsConstructor;

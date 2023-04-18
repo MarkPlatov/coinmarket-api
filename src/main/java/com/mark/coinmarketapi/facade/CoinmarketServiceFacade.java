@@ -1,7 +1,12 @@
 package com.mark.coinmarketapi.facade;
 
-import com.mark.coinmarketapi.dto.response.KeyInfoResponse;
-import com.mark.coinmarketapi.dto.response.QuotesLatestResponse;
+import java.util.List;
+
+import com.mark.coinmarketapi.dto.ExchangeRateRequest;
+import com.mark.coinmarketapi.dto.ExchangeRateResponse;
+import com.mark.coinmarketapi.dto.externalresponse.KeyInfoResponse;
+import com.mark.coinmarketapi.dto.externalresponse.QuotesLatestResponse;
+import com.mark.coinmarketapi.model.Coin;
 
 
 public interface CoinmarketServiceFacade {
@@ -12,4 +17,7 @@ public interface CoinmarketServiceFacade {
 
     void updateCoinsCache();
 
+    ExchangeRateResponse getExchangeRate(ExchangeRateRequest request);
+
+    List<Coin> findCoinsByNamePart(String namePart);
 }

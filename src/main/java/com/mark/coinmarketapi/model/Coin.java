@@ -19,7 +19,6 @@ import lombok.ToString;
 public class Coin {
 
     @Id
-    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 

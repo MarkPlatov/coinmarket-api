@@ -1,4 +1,4 @@
-package com.mark.coinmarketapi.dto.response;
+package com.mark.coinmarketapi.dto.externalresponse;
 
 import java.util.List;
 
