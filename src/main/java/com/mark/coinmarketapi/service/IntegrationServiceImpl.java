@@ -43,14 +43,14 @@ public class IntegrationServiceImpl implements IntegrationService {
     @Override
     public List<Coin> loadAllCoins() {
         List<Coin> coins = new ArrayList<>(DEFAULT_STEP_SIZE);
-        coins.addAll(fiatMap(coinLambda(), ListingStatus.ACTIVE));
-        coins.addAll(fiatMap(coinLambda(), ListingStatus.INACTIVE));
-        coins.addAll(fiatMap(coinLambda(), ListingStatus.UNTRACKED));
-        coins.addAll(fiatMap(fiatLambda(), null));
+        coins.addAll(loadCurrencies(coinLambda(), ListingStatus.ACTIVE));
+        coins.addAll(loadCurrencies(coinLambda(), ListingStatus.INACTIVE));
+        coins.addAll(loadCurrencies(coinLambda(), ListingStatus.UNTRACKED));
+        coins.addAll(loadCurrencies(fiatLambda(), null));
         return coins;
     }
 
-    private List<Coin> fiatMap(
+    private List<Coin> loadCurrencies(
         BiFunction<ListingStatus, Integer, List<CoinDto>> integrationMethod,
         ListingStatus listingStatus
     ) {

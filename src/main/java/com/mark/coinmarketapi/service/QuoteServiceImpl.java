@@ -27,7 +27,7 @@ public class QuoteServiceImpl implements QuoteService {
     public Optional<Quote> findRecent(Integer sourceCmsId, Integer destinationCmcId) {
         Long expirationMinutes = appConfig.getQuoteExpirationTimeMinutes();
         LocalDateTime eldestValid = LocalDateTime.now(ZoneOffset.UTC).minus(expirationMinutes, ChronoUnit.MINUTES);
-        return repository.findBySourceCmcIdAndDestinationCmcIdAndLastUpdatedAfter(
+        return repository.findFirstBySourceCmcIdAndDestinationCmcIdAndLastUpdatedAfterOrderByLastUpdatedDesc(
             sourceCmsId,
             destinationCmcId,
             eldestValid
@@ -35,10 +35,15 @@ public class QuoteServiceImpl implements QuoteService {
     }
 
     @Override
-    public Quote save(QuotesLatestResponse quotesLatestResponse, Integer sourceCmcId, Integer destinationCmcId) {
-        CoinDto coinDto = quotesLatestResponse.getData().get(sourceCmcId.toString());
-        Double price = coinDto.getQuote().get(destinationCmcId.toString()).getPrice();
-        LocalDateTime lastUpdated = coinDto.getQuote().get(destinationCmcId.toString()).getLastUpdated();
+    public Quote save(QuotesLatestResponse response, Integer sourceCmcId, Integer destinationCmcId) {
+        CoinDto coinDto = response.getData()
+            .get(sourceCmcId.toString());
+        Double price = coinDto.getQuote()
+            .get(destinationCmcId.toString())
+            .getPrice();
+        LocalDateTime lastUpdated = coinDto.getQuote()
+            .get(destinationCmcId.toString())
+            .getLastUpdated();
 
         Quote plainQuote = new Quote();
         plainQuote.setSourceCmcId(sourceCmcId);

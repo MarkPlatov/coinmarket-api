@@ -7,6 +7,11 @@ import com.mark.coinmarketapi.model.Quote;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface QuoteRepository extends JpaRepository<Quote, Integer> {
-    Optional<Quote> findBySourceCmcIdAndDestinationCmcIdAndLastUpdatedAfter(Integer sourceCmcId, Integer destinationCmcId, LocalDateTime lastUpdated);
+
+    Optional<Quote> findFirstBySourceCmcIdAndDestinationCmcIdAndLastUpdatedAfterOrderByLastUpdatedDesc(
+        Integer sourceCmcId,
+        Integer destinationCmcId,
+        LocalDateTime lastUpdated
+    );
 
 }
