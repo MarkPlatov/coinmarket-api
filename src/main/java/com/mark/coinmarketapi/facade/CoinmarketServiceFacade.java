@@ -13,8 +13,6 @@ public interface CoinmarketServiceFacade {
 
     KeyInfoResponse keyInfo();
 
-    QuotesLatestResponse getQuotes(Integer cmcId, Integer convertCmcId);
-
     void updateCoinsCache();
 
     ExchangeRateResponse getExchangeRate(ExchangeRateRequest request);

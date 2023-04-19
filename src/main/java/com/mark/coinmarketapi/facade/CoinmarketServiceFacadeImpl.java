@@ -32,11 +32,6 @@ public class CoinmarketServiceFacadeImpl implements CoinmarketServiceFacade {
     }
 
     @Override
-    public QuotesLatestResponse getQuotes(Integer cmcId, Integer convertCmcId) {
-        return integrationService.getQuotes(cmcId, convertCmcId);
-    }
-
-    @Override
     @Transactional
     public void updateCoinsCache() {
         coinService.cleanCoinsTable();

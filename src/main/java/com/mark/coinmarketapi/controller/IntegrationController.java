@@ -28,15 +28,6 @@ public class IntegrationController {
         return ResponseEntity.ok(coinmarketServiceFacade.keyInfo());
     }
 
-    @GetMapping(value = "/quotes", produces = MediaType.APPLICATION_JSON_VALUE)
-    @Operation(summary = "Quotes latest")
-    @ApiResponses({
-        @ApiResponse(responseCode = "500", description = "Internal Server Error")
-    })
-    public ResponseEntity<?> getQuotes(@RequestParam Integer cmcId, @RequestParam Integer convertCmcId) {
-        return ResponseEntity.ok(coinmarketServiceFacade.getQuotes(cmcId, convertCmcId));
-    }
-
     @GetMapping(value = "/update-coins-cache")
     @Operation(summary = "Refresh coins cache")
     @ApiResponses({
