@@ -9,7 +9,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -20,7 +19,7 @@ public class IntegrationController {
     private final CoinmarketServiceFacade coinmarketServiceFacade;
 
     @GetMapping(value = "/key-info", produces = MediaType.APPLICATION_JSON_VALUE)
-    @Operation(summary = "Quotes latest")
+    @Operation(summary = "Get info about integration key limits")
     @ApiResponses({
         @ApiResponse(responseCode = "500", description = "Internal Server Error")
     })
